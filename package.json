@@ -4,7 +4,7 @@
   "description": "Discord to Trello card.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo ねえよ、そんなもん… && exit 1"
   },
   "author": "",
   "license": "ISC",

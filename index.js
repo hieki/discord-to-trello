@@ -27,7 +27,11 @@ client.on("ready", message => {
 client.on("message", message => {
   if (message.channel.id === discordChannelID) {
     console.log("gatcha!");
-    postTrello(trelloClient, trelloIDList, message);
+    postTrello(trelloClient, trelloIDList, message).then((data) => {
+
+    }).catch((err) => {
+      console.log(`FAILED!: ${err}`);
+    });
   }
 });
 
