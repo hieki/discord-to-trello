@@ -8,7 +8,7 @@ const discordChannelID = process.env.DISCORD_CHANNEL_ID;
 const trelloIDList = process.env.TRELLO_ID_LIST;
 
 [trelloKey, trelloToken, discordBotToken, discordChannelID, trelloIDList].forEach(i => {
-  if (i) {
+  if (!i) {
     console.log("Token is undefined. Please set .env file. Exit...");
     process.exit(0);
   }
@@ -26,9 +26,11 @@ client.on("ready", message => {
 
 client.on("message", message => {
   if (message.channel.id === discordChannelID) {
-    console.log("gatcha!");
-    postTrello(trelloClient, trelloIDList, message).then((data) => {
 
+    console.log("gatcha!");
+
+    postTrello(trelloClient, trelloIDList, message).then((data) => {
+      console.log(`SUCCESS!: ${JSON.stringify(data)}`);
     }).catch((err) => {
       console.log(`FAILED!: ${err}`);
     });
